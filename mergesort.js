@@ -9,8 +9,6 @@ function mergesort(array = []) {
   const leftHalf = array.slice(0, midIndex);
   const rigthHalf = array.slice(midIndex, inputLength);
 
-  //   console.log(leftHalf);
-  //   console.log(rigthHalf);
   mergesort(leftHalf);
   mergesort(rigthHalf);
 
@@ -49,6 +47,12 @@ function merge(array = [], leftHalf = [], rigthHalf = []) {
     k++;
   }
 }
-const array = [4, 5, 6, 7, 1, 2, 3, 78, 9];
-console.log(array);
-console.log(mergesort(array));
+console.time("generate");
+const array = [...new Array(100000)].map(() =>
+  Math.floor(Math.random() * 1000000)
+);
+console.timeEnd("generate");
+
+console.time("sort");
+mergesort(array);
+console.timeEnd("sort");

@@ -23,6 +23,5 @@ function mix(s1, s2) {
   const longest = isS1longest ? validS1 : validS2;
 
   return longest.reduce(() => {}, "");
-  // your code
 }
 console.log(mix("Are they here", "yes, they are here"));
